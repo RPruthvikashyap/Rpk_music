@@ -1,0 +1,40 @@
+{%extends 'musicbeats/basic.htm'%}
+{% block title%}Channel{% endblock %}
+
+{% block body %}
+{% load static %} 
+    <link rel="stylesheet" href="{% static 'channel.css'%}">
+<h1 style="text-align: center; padding-top: 2%; color: white;">CHANNEL: {{channel.name}}</h1>
+{% if song|length < 1 %}
+        <h3 style="text-align: center; padding-top: 5%; color:grey">You Have not Uploaded any song</h3>
+{% endif %}
+<div class="container">
+{% for i in song reversed %}
+<div class="card mb-3">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{i.image}}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title">{{i.name}}</h2>
+          <h5 class="card-text">Tags: {{i.tags}}</h5>
+        <h5 class="card-text">Movie: {{i.movie}}</h5>
+        {% if user.is_authenticated %}
+        <form action="/musicbeats/history" method="POST">{% csrf_token %}
+          <input type="hidden" name="music_id" value="{{i.song_id}}">
+          <a href="/musicbeats/songs/{{i.song_id}}"><button>Listen Now</button></a>
+        </form>
+        {% else %}
+        <a href="/musicbeats/songs/{{i.song_id}}"><button>Listen Now</button></a>
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  
+</div>
+
+
+{% endblock %}

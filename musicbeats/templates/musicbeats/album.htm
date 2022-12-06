@@ -1,0 +1,22 @@
+{% extends 'musicbeats/basic.htm' %}
+{% block title %}Albums{% endblock %}
+
+{% block body %}
+ {% load static %} 
+    <link rel="stylesheet" href="{% static 'album.css'%}">
+<h1 style="color: white; text-align: center;">Albums</h1>
+<div class="row" style="padding-top: 2%;">
+{% for i in album reversed %}
+<div style="padding-left: 4%; padding-top: 2%;">
+    <div class="card">
+      <img src="{{i.image}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h4 style="color: white; text-align:left;">Name: {{i.Album_name}}</h4>
+        <h6 class="card-text" style="color: white; padding-left: 4%; padding-top: 2%;">Artist: {{i.singer}}</h6>
+        <a href="/musicbeats/album/{{i.Album_id}}"><button>Listen now</button></a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  </div>
+{% endblock %}

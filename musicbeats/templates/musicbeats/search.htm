@@ -1,0 +1,35 @@
+{%extends 'musicbeats/basic.htm'%}
+{% block title%}Search{% endblock %}
+
+{% block body %}
+{% load static %} 
+    <link rel="stylesheet" href="{% static 'song.css'%}">
+    <h1>Search Result</h1>
+<div class="container">
+   <h2>your search result result for "{{query}}":</h2>
+{% for i in songs reversed %}
+<div class="card mb-3">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{i.image}}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2>{{i.name}}</h2>
+          <h5>Genre {{i.tags}}</h5>
+        <h5>Movie: {{i.movie}}</h5>
+        {% if user.is_authenticated %}
+        <form action="/musicbeats/history" method="POST">{% csrf_token %}
+          <input type="hidden" name="music_id" value="{{i.song_id}}">
+          <a href="/musicbeats/songs/{{i.song_id}}"><button>Listen Song</button></a>
+        </form>
+        {% else %}
+        <a href="/musicbeats/songs/{{i.song_id}}"><button>Listen Song</button></a>
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+body{
+    background-color: black;
+  }
+  h1{
+    color: white; 
+    text-align: center;
+  }
+  
+  h2{
+    color: white; 
+    text-align: left;
+    font-weight: 500;
+  }
+  h5{
+    color: white; 
+    text-align: left;
+    font-weight: 50;
+  }
+    
+  .card{    
+	background: white;
+	position: relative;
+	display: flex;
+	transition: 0.4s ease-out;
+	box-shadow: 0px 7px 10px rgba(black, 0.5);
+    background-color:#8b0000e5;
+    max-width: 940px; 
+    padding-top: 0%;
+  }
+  .card:hover{
+    transform: scale(1.05);
+    transition: 0.4s ease;
+ box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+p{
+    letter-spacing: 1px;
+    font-size: 15px;
+    margin-top: 8px;
+    text-align: left;
+    color: whitesmoke;
+}
+
+button {
+    padding: 0.6rem;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background: black;
+    color: whitesmoke;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s ease;
+    border-radius: 5%;
+  }
+
+  button:hover {
+    background:red;
+    color: white;
+    transform: scale(1.05);
+ box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  }
+  
+  img{
+   
+ box-shadow: 0 10px 20px #0000001f, 0 4px 8px #0000000f;
+  }
+
+.container{
+    padding-top: 3%;
+}

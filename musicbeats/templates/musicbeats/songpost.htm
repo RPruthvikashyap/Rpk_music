@@ -1,0 +1,63 @@
+{%extends 'musicbeats/basic.htm'%}
+{% block title%}All Songs{% endblock %}
+
+{% block body %}
+{% load static %} 
+    <link rel="stylesheet" href="{% static 'songpost.css'%}">
+
+
+{% if message%}
+<script>
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: '{{message}}',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    </script>
+{% endif %}
+
+<div class="container" style="padding-left: 10%; padding-top: 5%;">
+    <div class="row">
+        <div class="col-md-6" style="padding-top: 3%;">
+            <img src="{{song.image}}" alt="" height="250px" width="350px">
+        </div>
+        <div class="col-md-6">
+            <h2 style="padding-top: 8%; font-weight: 950; color: white;">{{song.name}}</h2>
+            <h5 style="padding-top: 2%; font-weight: 550; color: white;">Category: {{song.tags}}</h5>
+            <h5 style="padding-top: 2%; font-weight: 550; color: white;">Movie: {{song.movie}}</h5>
+            <h5 style="padding-top: 2%; font-weight: 550; color: white;">Singer: {{song.singer}}</h5>
+            <h5 style="padding-top: 2%; font-weight: 550; color: white;">Credit: <a href="{{song.credit}}" target="blank_">Click here</a></h5>
+            
+            <div style="padding-top: 2%;">
+
+            <div class="row" style="padding-left: 3%;">
+            <form action="/musicbeats/watchlater" method="POST">{% csrf_token %}
+            <input type="hidden" name="video_id" value="{{song.song_id}}">
+            <input class="like" type="image" src="https://th.bing.com/th/id/R.b1312018eba11537f434abadd6f5e6b4?rik=h%2bwYOyUIXWmeFw&riu=http%3a%2f%2fwww.transparentpng.com%2fthumb%2finstagram-heart%2f8TPkVW-red-instagram-heart-free-download.png&ehk=GWj8JW8xS0OfG5QXb9TnBXOx6tE3Y3YSAFSVZXVLtpo%3d&risl=&pid=ImgRaw&r=0" name="submit" width="45" height="45" alt="submit">
+            </form>
+            <a download href="/media/{{song.song}}" style="padding-left: 5%;"><input class="like" type="image" src="https://www.temperaturetec.com/data/uploads/images/download-icon-grey.png" name="submit" width="45" height="45" alt="submit"></a>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+    
+</div>
+
+<h2 style="padding-top: 3%; font-weight: 550; color: white;"></h2>
+<audio controls class="audiplay" >
+            <source src="/media/{{song.song}}" type="audio/mp3">
+    </audio>
+<script>
+<style>
+  .ap_container {position:fixed;width:100%;bottom:0px ;left:0px;}
+</style>
+
+</script>
+
+{% endblock %}
+{% block js %}
+
+{% endblock%}

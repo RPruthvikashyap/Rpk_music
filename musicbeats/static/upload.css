@@ -1,0 +1,32 @@
+body{
+    background-color: black;
+  }
+  label{
+    color: white;
+  }  
+
+  h1{
+    text-align: center; padding-top: 2%; color: white;
+  }
+
+  button {
+    padding: 0.6rem;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background: red;
+    color: whitesmoke;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s ease;
+    border-radius: 5%;
+  }
+  button:hover {
+    background:maroon;
+    color: white;
+    transform: scale(1.05);
+ box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  }
+  .button{
+    transform: scale(1.05);
+  }

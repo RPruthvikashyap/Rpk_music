@@ -1,0 +1,22 @@
+body{
+    background-color: black;
+  }
+audio { 
+width: 1325px; 
+box-shadow: 10px 10px 20px rgba(0,0, 0, 0.4);
+border-radius: 100px;
+transform: scale(1.05);
+padding-left: 200px;
+}
+.container{
+  width: 90%;
+  height: 80%;
+  margin: 50; /* Space from this element (entire page) and others*/
+  padding-top: 2px; /*space from content and border*/
+  border: solid white;
+  border-width: thin;
+  overflow:hidden;
+  display:block;
+  background-color: #091321;
+}
+

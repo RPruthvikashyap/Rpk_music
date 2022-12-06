@@ -1,0 +1,55 @@
+{%extends 'musicbeats/basic.htm'%}
+{% block title%}Genre{% endblock %}
+
+{% block body %}
+<h2>All Genre</h2>
+    <div id="genre">
+    {% for list in genre_list %}
+    <div class = "card">
+        <a class="title bg-light" href={% url 'tags' list.tags %}>{{list.tags}}</a>
+    </div>  
+    {% endfor %}
+    </div>
+    <style>
+
+
+#genre{
+    margin-top: 4vw;
+    grid-gap: 2vw;
+    display:grid;
+    width: 40%;
+    margin-left: 30%;
+    grid-template-rows: repeat(auto,1fr);
+    grid-template-columns: 1fr;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}        
+
+.card{
+    display: grid;
+    grid-template-rows: repeat(auto,1fr);
+    grid-template-columns: 1fr;
+    width: 90%;
+    margin-left: 5%;
+    background-color: grey;
+}
+
+h2{
+    text-align: center;
+    color: white
+}
+body{
+    background-color: black;
+}
+
+.title{
+
+    font-size: 2vw;
+    color:black;
+}
+.listuser{
+    font-weight: bold;
+}
+</style>
+
+{% endblock %}
